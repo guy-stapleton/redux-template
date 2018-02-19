@@ -1,0 +1,5 @@
+.DS_Store
+node_modules
+*bundle.js*
+dev.sqlite3
+*.log
