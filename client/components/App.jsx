@@ -1,18 +1,31 @@
 import React from 'react'
-import {HashRouter as Router, Route} from 'react-dom'
+import {HashRouter as Router, Route} from 'react-router-dom'
+import {connect} from 'react-redux'
+
+import {testConnection} from '../api/api'
 
 import Error from './Error'
 import SelectAuthor from './SelectAuthor'
 import Dashboard from './Dashboard'
 import PostPublished from './PostPublished'
 
-const App = () => {
-  return (
+class App extends React.Component {
+  constructor(props) {
+  super(props)
+
+  }
+
+  // methods
+  componentDidMount() {
+    console.log("mount")
+  }
+  render() {
+    return <Router>
       <div>
         <h1>Sparrow CMS</h1>
         <SelectAuthor />
       </div>
-  )
+    </Router>
+  }
 }
-
-export default App
+export default connect()(App)
