@@ -2,7 +2,7 @@
   "name": "redux-template",
   "version": "0.0.1",
   "description": "A base file structure for a redux project",
-  "main": "index.js",
+  "main": "server/index.js",
   "repository": "https://github.com/guy-stapleton/redux-template.git",
   "author": "Guy Stapleton <guy.stapleton+1@gmail.com>",
   "license": "MIT",
@@ -10,27 +10,27 @@
     "node": ">=8.9.0"
   },
   "scripts": {
-     "dev": "nodemon --watch server & webpack --watch",
-     "knex": "knex",
-     "migrate": "[ \"$NODE_ENV\" = \"production\" ] && exit 0; knex migrate:latest",
-     "migrate:prod": "knex migrate:latest",
-     "postinstall": "webpack && npm run migrate",
-     "start": "node server",
-     "test": "jest",
-     "test:watch": "jest --watchAll"
-   },
-   "jest": {
-     "setupFiles": [
-       "dotenv/config"
-     ]
-   },
-   "babel": {
-     "presets": [
-       "env",
-       "react",
-       "stage-3"
-     ]
-   },
+    "dev": "nodemon --watch server & webpack --watch",
+    "knex": "knex",
+    "migrate": "[ \"$NODE_ENV\" = \"production\" ] && exit 0; knex migrate:latest",
+    "migrate:prod": "knex migrate:latest",
+    "postinstall": "webpack && npm run migrate",
+    "start": "node server",
+    "test": "jest",
+    "test:watch": "jest --watchAll"
+  },
+  "jest": {
+    "setupFiles": [
+      "dotenv/config"
+    ]
+  },
+  "babel": {
+    "presets": [
+      "env",
+      "react",
+      "stage-3"
+    ]
+  },
   "dependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
@@ -44,6 +44,7 @@
     "jsonwebtoken": "^8.1.1",
     "jwt-decode": "^2.2.0",
     "knex": "^0.14.4",
+    "path": "^0.12.7",
     "pg": "^7.4.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
