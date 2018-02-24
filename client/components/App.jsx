@@ -2,7 +2,7 @@ import React from 'react'
 import {HashRouter as Router, Route} from 'react-router-dom'
 import {connect} from 'react-redux'
 
-import {testConnection} from '../api/api'
+import {testConnection} from '../actions/test'
 
 import Error from './Error'
 import SelectAuthor from './SelectAuthor'
@@ -17,15 +17,25 @@ class App extends React.Component {
 
   // methods
   componentDidMount() {
-    console.log("mount")
+    this.props.dispatch(testConnection())
   }
   render() {
+    const xxx = this.props.test
+    console.log(xxx)
     return <Router>
       <div>
         <h1>Sparrow CMS</h1>
         <SelectAuthor />
+        <p>{xxx.msg}</p>
       </div>
     </Router>
   }
 }
-export default connect()(App)
+
+const mapStateToProps = (state) => {
+  console.log(`I am mapStateToProps`)
+  console.log(state)
+  return state
+}
+
+export default connect(mapStateToProps)(App)
