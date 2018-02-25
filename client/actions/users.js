@@ -15,7 +15,6 @@ export function displayUsers (users) {
 
 
 export function getUsers() {
-  console.log(`This is the getUsers function`)
   return dispatch => {
     request
       .get(apiUsers)
@@ -23,7 +22,7 @@ export function getUsers() {
         if (err) {
           return err.message
         }
-        dispatch(displayUsers(displayUsers(res.body)))
+        dispatch(displayUsers(res.body))
       })
   }
 }
