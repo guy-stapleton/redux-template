@@ -20,11 +20,11 @@ class App extends React.Component {
     this.props.dispatch(getUsers())
   }
   render() {
-    const xxx = this.props.test
+    const users = this.props.users
     return <Router>
       <div>
         <h1>Sparrow CMS</h1>
-        <SelectAuthor />
+        <SelectAuthor users={users}/>
       </div>
     </Router>
   }
