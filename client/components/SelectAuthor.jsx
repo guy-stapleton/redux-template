@@ -1,16 +1,23 @@
 import React from 'react'
+import {connect} from 'react-redux'
 
-const SelectAuthor = (props) => {
+ function SelectAuthor ({users}) {
+   console.log(`This is the data in state`)
+   console.log(users)
   return (
     <div>
       <select name="author">
-        <option value="1">Guy Stapleton</option>
-        <option value="2">Carlos Boozer</option>
-        <option value="3">Nate Robsinson</option>
+        {users.map((user, i) => {
+          return <option key={i} value={user.author_id}>{user.name}</option>
+        })}
       </select>
       <input type="submit" value="Select User" />
     </div>
   )
 }
 
-export default SelectAuthor
+const mapStateToProps = state => {
+  return {users: state.users}
+}
+
+export default connect(mapStateToProps)(SelectAuthor)
